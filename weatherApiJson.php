@@ -7,12 +7,14 @@ $json = file_get_contents($website);
 $decodedJson = json_decode($json);
 $temp = $decodedJson->list[0]->main->temp;
 $weather = $decodedJson->list[0]->weather[0]->main;
+$tempOver3 = $decodedJson->list[1]->main->temp;
+$weatherOver3 = $decodedJson->list[1]->weather[0]->main;
 
 $weer = [
     "temp" => $temp,
     "weather" => $weather,
-    "temp" => $temp,
-    "weather" => $weather
+    "tempOver3" => $tempOver3,
+    "weatherOver3" => $weatherOver3
 ];
 
 echo json_encode($weer);
