@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class CountdownTimer : MonoBehaviour {
+
+    // Reference objects, setting up timer to 1800 frames or 30 seconds per turn
+
+    public int timeNumber = 1800;
+    public Slider Countdown;
+    public bool playerTurn = true;
+    public Image OpponentTurn;
+    public Image YourTurn;
+    public int turnCounter;
+    public Text TurnCounter;
+
+    void Update()
+    {
+        // Counting down
+        Countdown.value = timeNumber;
+        if (timeNumber >= 0) {
+            timeNumber -= 1;
+        }
+        // If timer is 0, switch turns and reset timer
+        if (timeNumber == 0)
+        
+        {
+            turnCounter++;
+            if (playerTurn == true) {
+                playerTurn = false;
+                timeNumber += 1800;
+
+                // Changing UI elements (Opponent's turn)
+
+                YourTurn.rectTransform.sizeDelta = new Vector2(0, 0);
+                OpponentTurn.rectTransform.sizeDelta = new Vector2(518, 159);
+            }
+            else
+            {
+                playerTurn = true;
+                timeNumber += 1800;
+
+                // Changing UI elements ( Your turn)
+
+                YourTurn.rectTransform.sizeDelta = new Vector2(518, 159);
+                OpponentTurn.rectTransform.sizeDelta = new Vector2(0, 0);
+            }
+            TurnCounter.text = (turnCounter.ToString());
+            
+        }
+      
+            
+        }
+
+}
+
+
