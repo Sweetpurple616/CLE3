@@ -9,10 +9,10 @@ $decodedJson = json_decode($json);
 
 // Haal de data uit de Json
 $temp = $decodedJson->list[0]->main->temp;
-$weather = $decodedJson->list[0]->weather[0]->main;
+$weather = $decodedJson->list[0]->weather[0]->id;
 $image = $decodedJson->list[0]->weather[0]->icon;
 $tempOver3 = $decodedJson->list[1]->main->temp;
-$weatherOver3 = $decodedJson->list[1]->weather[0]->main;
+$weatherOver3 = $decodedJson->list[1]->weather[0]->id;
 $weatherimg = "http://openweathermap.org/img/w/" . $image. ".png";
 
 // Zet de Data om in een array
